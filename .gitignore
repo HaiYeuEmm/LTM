@@ -1,0 +1,7 @@
+# Local environment files may contain database credentials.
+**/.env
+**/.env.*
+!**/.env.example
+
+# Per-machine Spring settings can contain database credentials.
+/server/application-local.properties

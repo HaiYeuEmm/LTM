@@ -1,0 +1,503 @@
+* {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.app-background {
+    -fx-background-color: #edf1f8;
+    -fx-padding: 20;
+}
+
+.app-shell {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-effect: dropshadow(gaussian, rgba(29, 42, 74, 0.16), 36, 0.16, 0, 14);
+    -fx-clip: true;
+}
+
+.brand-panel {
+    -fx-background-color: linear-gradient(to bottom right, #1e2b69, #384fa1 60%, #576ac0);
+    -fx-background-radius: 22 0 0 22;
+}
+
+.brand-mark {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-text-fill: #344a9a;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+    -fx-min-width: 42px;
+    -fx-min-height: 42px;
+}
+
+.brand-name {
+    -fx-text-fill: white;
+    -fx-font-size: 23px;
+    -fx-font-weight: 800;
+}
+
+.brand-eyebrow {
+    -fx-text-fill: #cbd5ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 1.7px;
+}
+
+.brand-headline {
+    -fx-text-fill: white;
+    -fx-font-size: 35px;
+    -fx-font-weight: 800;
+    -fx-line-spacing: 5px;
+    -fx-padding: 14px 0 12px 0;
+}
+
+.brand-copy {
+    -fx-text-fill: #dce3ff;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 5px;
+    -fx-max-width: 330px;
+}
+
+.feature-list {
+    -fx-padding: 34px 0 0 0;
+}
+
+.feature-number {
+    -fx-text-fill: #dce3ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-min-width: 34px;
+    -fx-min-height: 30px;
+    -fx-alignment: center;
+}
+
+.feature-copy {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.brand-footer {
+    -fx-text-fill: #cbd5ff;
+    -fx-font-size: 11px;
+}
+
+.auth-panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0 22 22 0;
+}
+
+.top-prompt {
+    -fx-text-fill: #788198;
+    -fx-font-size: 12px;
+}
+
+.text-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #455db4;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 0 4 7;
+    -fx-cursor: hand;
+}
+
+.text-button:hover {
+    -fx-text-fill: #263c8e;
+}
+
+.form-heading {
+    -fx-text-fill: #1c2540;
+    -fx-font-size: 29px;
+    -fx-font-weight: 800;
+}
+
+.form-description {
+    -fx-text-fill: #788198;
+    -fx-font-size: 13px;
+}
+
+.field-label {
+    -fx-text-fill: #303951;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.form-input {
+    -fx-background-color: #f8f9fc;
+    -fx-background-radius: 9;
+    -fx-border-color: #e3e7f0;
+    -fx-border-radius: 9;
+    -fx-border-width: 1;
+    -fx-padding: 0 14;
+    -fx-text-fill: #202943;
+    -fx-prompt-text-fill: #a4abbb;
+    -fx-font-size: 13px;
+}
+
+.form-input:focused {
+    -fx-background-color: white;
+    -fx-border-color: #6378d0;
+    -fx-effect: dropshadow(gaussian, rgba(88, 109, 199, 0.13), 8, 0.1, 0, 1);
+}
+
+.terms-check {
+    -fx-text-fill: #707990;
+    -fx-font-size: 11px;
+}
+
+.terms-check .box {
+    -fx-background-color: white;
+    -fx-border-color: #cdd3e1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.terms-check:selected .mark {
+    -fx-background-color: white;
+}
+
+.terms-check:selected .box {
+    -fx-background-color: #4c63b4;
+    -fx-border-color: #4c63b4;
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #4057aa, #586fca);
+    -fx-background-radius: 9;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-min-height: 49px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(65, 85, 170, 0.2), 12, 0.12, 0, 4);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #354b9b, #4b62bc);
+}
+
+.form-message {
+    -fx-text-fill: #4c63b4;
+    -fx-font-size: 11px;
+}
+
+.divider-line {
+    -fx-background-color: #e9ecf3;
+    -fx-pref-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.divider-text {
+    -fx-text-fill: #a1a8b8;
+    -fx-font-size: 9px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 1px;
+}
+
+.secondary-button {
+    -fx-background-color: white;
+    -fx-background-radius: 9;
+    -fx-border-color: #e0e4ed;
+    -fx-border-radius: 9;
+    -fx-text-fill: #39435d;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-min-height: 46px;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #f8f9fc;
+    -fx-border-color: #cbd2e1;
+}
+
+.welcome-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(29, 42, 74, 0.13), 28, 0.15, 0, 10);
+}
+
+.welcome-heading {
+    -fx-text-fill: #1c2540;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+.welcome-email {
+    -fx-text-fill: #455db4;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.teacher-root {
+    -fx-background-color: #f4f6fb;
+}
+
+.teacher-sidebar {
+    -fx-background-color: #202b52;
+}
+
+.teacher-brand-mark {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-text-fill: #344a9a;
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+}
+
+.teacher-brand-name {
+    -fx-text-fill: white;
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+}
+
+.teacher-side-caption {
+    -fx-text-fill: #929fca;
+    -fx-font-size: 9px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 1.1px;
+}
+
+.teacher-navigation {
+    -fx-spacing: 6px;
+}
+
+.teacher-nav-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 9;
+    -fx-text-fill: #c1c9e1;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-min-height: 43px;
+    -fx-padding: 0 13px;
+    -fx-cursor: hand;
+}
+
+.teacher-nav-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-text-fill: white;
+}
+
+.teacher-nav-button.teacher-nav-active {
+    -fx-background-color: #3d4d83;
+    -fx-text-fill: white;
+}
+
+.teacher-profile {
+    -fx-border-color: rgba(255, 255, 255, 0.12) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 18px 2px 0 2px;
+}
+
+.teacher-avatar,
+.teacher-class-avatar {
+    -fx-background-color: #e7ebfb;
+    -fx-background-radius: 11;
+    -fx-text-fill: #435bb1;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+    -fx-min-width: 38px;
+    -fx-min-height: 38px;
+}
+
+.teacher-profile-name {
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+
+.teacher-profile-role {
+    -fx-text-fill: #a8b2d0;
+    -fx-font-size: 10px;
+}
+
+.teacher-logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #c1c9e1;
+    -fx-font-size: 11px;
+    -fx-alignment: center-left;
+    -fx-padding: 9 2;
+    -fx-cursor: hand;
+}
+
+.teacher-logout-button:hover {
+    -fx-text-fill: white;
+}
+
+.teacher-main {
+    -fx-background-color: #f4f6fb;
+}
+
+.teacher-topbar {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e8ebf2 transparent;
+    -fx-padding: 20px 34px;
+}
+
+.teacher-page-title {
+    -fx-text-fill: #202a46;
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+}
+
+.teacher-page-subtitle {
+    -fx-text-fill: #8991a4;
+    -fx-font-size: 11px;
+}
+
+.teacher-search {
+    -fx-background-color: #f7f8fb;
+    -fx-background-radius: 8;
+    -fx-border-color: #e7eaf1;
+    -fx-border-radius: 8;
+    -fx-padding: 10 13;
+    -fx-prompt-text-fill: #9ba3b5;
+    -fx-font-size: 11px;
+}
+
+.teacher-notification {
+    -fx-background-color: #fff0ec;
+    -fx-background-radius: 20;
+    -fx-text-fill: #d36c53;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+    -fx-alignment: center;
+    -fx-min-width: 27px;
+    -fx-min-height: 27px;
+}
+
+.teacher-primary-button {
+    -fx-background-color: #4b61b5;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-padding: 11 15;
+    -fx-cursor: hand;
+}
+
+.teacher-primary-button:hover {
+    -fx-background-color: #3c51a1;
+}
+
+.teacher-page-content {
+    -fx-background-color: #f4f6fb;
+}
+
+.teacher-sample-notice {
+    -fx-background-color: #fff8e8;
+    -fx-background-radius: 7;
+    -fx-padding: 10 13;
+}
+
+.teacher-notice-text {
+    -fx-text-fill: #92733a;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+}
+
+.teacher-stat-card,
+.teacher-panel,
+.teacher-list-card {
+    -fx-background-color: white;
+    -fx-background-radius: 11;
+    -fx-border-color: #e9edf4;
+    -fx-border-radius: 11;
+    -fx-padding: 19;
+}
+
+.teacher-stat-card {
+    -fx-min-width: 150px;
+    -fx-border-width: 0 0 0 3;
+}
+
+.accent-blue { -fx-border-color: #5b75d1; }
+.accent-violet { -fx-border-color: #9274d6; }
+.accent-orange { -fx-border-color: #e5a158; }
+.accent-green { -fx-border-color: #4cae8a; }
+
+.teacher-stat-caption {
+    -fx-text-fill: #838ca2;
+    -fx-font-size: 9px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.7px;
+}
+
+.teacher-stat-number {
+    -fx-text-fill: #202a46;
+    -fx-font-size: 27px;
+    -fx-font-weight: 800;
+}
+
+.teacher-stat-detail,
+.teacher-row-subtitle {
+    -fx-text-fill: #8991a4;
+    -fx-font-size: 10px;
+}
+
+.teacher-panel {
+    -fx-padding: 19;
+    -fx-min-width: 320px;
+}
+
+.teacher-panel-title,
+.teacher-card-title {
+    -fx-text-fill: #28324d;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.teacher-link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #5369bb;
+    -fx-font-size: 10px;
+    -fx-cursor: hand;
+}
+
+.teacher-separator {
+    -fx-background-color: #edf0f5;
+}
+
+.teacher-row-title {
+    -fx-text-fill: #35405b;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+}
+
+.teacher-status {
+    -fx-background-radius: 20;
+    -fx-font-size: 8px;
+    -fx-font-weight: 700;
+    -fx-padding: 6 8;
+}
+
+.status-live {
+    -fx-background-color: #fff0eb;
+    -fx-text-fill: #d76b50;
+}
+
+.status-planned {
+    -fx-background-color: #edf1ff;
+    -fx-text-fill: #556abd;
+}
+
+.status-done {
+    -fx-background-color: #eaf7f1;
+    -fx-text-fill: #469675;
+}
+
+.teacher-section-title {
+    -fx-text-fill: #202a46;
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+
+.teacher-list-card {
+    -fx-padding: 18 20;
+}
