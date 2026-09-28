@@ -1,0 +1,468 @@
+/* Styles specific to the teacher workspace. Loaded after auth.css. */
+.teacher-root {
+    -fx-background-color: #f3f6fc;
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+.teacher-sidebar {
+    -fx-background-color: linear-gradient(to bottom, #172448, #202f5d);
+    -fx-pref-width: 245px;
+    -fx-min-width: 220px;
+    -fx-effect: dropshadow(gaussian, rgba(26, 42, 82, 0.16), 18, 0.12, 4, 0);
+}
+
+.teacher-sidebar-brand {
+    -fx-padding: 2px 0 18px 2px;
+}
+
+.teacher-brand-mark {
+    -fx-background-color: #73e1d0;
+    -fx-background-radius: 12px;
+    -fx-text-fill: #15294b;
+    -fx-font-size: 18px;
+    -fx-font-weight: 900;
+    -fx-alignment: center;
+    -fx-min-width: 38px;
+    -fx-min-height: 38px;
+}
+
+.teacher-brand-name {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 23px;
+    -fx-font-weight: 800;
+    -fx-padding: 4 0 20 2;
+}
+
+.teacher-profile-name {
+    -fx-text-fill: #d8e1ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+    -fx-padding: 12 8 18 8;
+}
+
+.teacher-side-caption {
+    -fx-text-fill: #7f91bb;
+    -fx-font-size: 9px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 1.2px;
+    -fx-padding: 16px 8px 8px 8px;
+}
+
+.teacher-user-card {
+    -fx-background-color: rgba(255, 255, 255, 0.075);
+    -fx-background-radius: 12px;
+    -fx-padding: 12px 10px;
+    -fx-border-color: rgba(255, 255, 255, 0.09);
+    -fx-border-radius: 12px;
+}
+
+.teacher-avatar {
+    -fx-background-color: #73e1d0;
+    -fx-background-radius: 50%;
+    -fx-text-fill: #17305a;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+    -fx-min-width: 38px;
+    -fx-min-height: 38px;
+}
+
+.teacher-profile-role {
+    -fx-text-fill: #7fe0d2;
+    -fx-font-size: 9px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 0.8px;
+}
+
+.teacher-profile-email {
+    -fx-text-fill: #a5b2d2;
+    -fx-font-size: 9px;
+}
+
+.teacher-nav-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #b9c5e2;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 11px 13px;
+    -fx-min-height: 42px;
+    -fx-cursor: hand;
+    -fx-alignment: center-left;
+}
+
+.teacher-sidebar .teacher-nav-button:hover,
+.teacher-sidebar .teacher-nav-button:focused,
+.teacher-sidebar .teacher-nav-button.teacher-nav-active {
+    -fx-background-color: #33477b;
+    -fx-text-fill: #ffffff;
+}
+
+.teacher-sidebar .teacher-nav-button.teacher-nav-active {
+    -fx-border-color: #74dfd0 transparent #74dfd0 #74dfd0;
+    -fx-border-width: 0 0 0 3px;
+}
+
+/* The current dashboard reuses nav buttons for its create/actions. */
+.teacher-page-content > .teacher-nav-button,
+.teacher-page-content .teacher-nav-button {
+    -fx-background-color: #4565c5;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 11px 17px;
+    -fx-min-height: 40px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(69, 101, 197, 0.2), 9, 0.1, 0, 3);
+}
+
+.teacher-page-content > .teacher-nav-button:hover,
+.teacher-page-content .teacher-nav-button:hover {
+    -fx-background-color: #3655b2;
+}
+
+.teacher-action-button {
+    -fx-background-color: #4565c5;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 11px 17px;
+    -fx-min-height: 40px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(69, 101, 197, 0.2), 9, 0.1, 0, 3);
+}
+
+.teacher-action-button:hover {
+    -fx-background-color: #3655b2;
+}
+
+.teacher-action-button:pressed {
+    -fx-background-color: #2c479a;
+}
+
+.teacher-link-button {
+    -fx-background-color: #eef2ff;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #3f5eb8;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+    -fx-padding: 8px 12px;
+    -fx-cursor: hand;
+}
+
+.teacher-link-button:hover {
+    -fx-background-color: #e0e8ff;
+    -fx-text-fill: #29489f;
+}
+
+.teacher-list-card .teacher-nav-button {
+    -fx-background-color: #eef2ff;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #3f5eb8;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+    -fx-padding: 8px 12px;
+    -fx-min-height: 34px;
+    -fx-effect: none;
+}
+
+.teacher-list-card .teacher-nav-button:hover {
+    -fx-background-color: #e0e8ff;
+    -fx-text-fill: #29489f;
+}
+
+.teacher-page-content {
+    -fx-background-color: #f3f6fc;
+    -fx-spacing: 18px;
+    -fx-padding: 34px 40px 42px 40px;
+}
+
+.teacher-scroll,
+.teacher-scroll > .viewport {
+    -fx-background-color: #f3f6fc;
+    -fx-background: #f3f6fc;
+    -fx-border-color: transparent;
+}
+
+.teacher-scroll > .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px;
+}
+
+.teacher-scroll > .scroll-bar:vertical > .thumb {
+    -fx-background-color: #c6cee0;
+    -fx-background-radius: 8px;
+}
+
+.teacher-page-title {
+    -fx-text-fill: #172448;
+    -fx-font-size: 25px;
+    -fx-font-weight: 800;
+}
+
+.teacher-hero {
+    -fx-background-color: linear-gradient(to right, #203568, #3156a3 70%, #287d91);
+    -fx-background-radius: 20px;
+    -fx-padding: 26px 30px;
+    -fx-min-height: 170px;
+    -fx-effect: dropshadow(gaussian, rgba(33, 56, 112, 0.2), 18, 0.12, 0, 7);
+}
+
+.teacher-hero-eyebrow {
+    -fx-text-fill: #80e2d5;
+    -fx-font-size: 9px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 1.4px;
+}
+
+.teacher-hero-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 27px;
+    -fx-font-weight: 800;
+}
+
+.teacher-hero-copy {
+    -fx-text-fill: #d6e1fa;
+    -fx-font-size: 12px;
+}
+
+.teacher-hero-emblem {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-background-radius: 50%;
+    -fx-text-fill: #9ff0e3;
+    -fx-font-size: 35px;
+    -fx-alignment: center;
+    -fx-min-width: 86px;
+    -fx-min-height: 86px;
+    -fx-border-color: rgba(255, 255, 255, 0.22);
+    -fx-border-radius: 50%;
+}
+
+.teacher-metric-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16px;
+    -fx-border-color: #e5eaf3;
+    -fx-border-radius: 16px;
+    -fx-padding: 17px 19px;
+    -fx-min-width: 170px;
+    -fx-effect: dropshadow(gaussian, rgba(35, 52, 91, 0.07), 12, 0.08, 0, 3);
+}
+
+.metric-blue { -fx-border-color: #5d7cdb; -fx-border-width: 0 0 0 4px; }
+.metric-teal { -fx-border-color: #35b9a7; -fx-border-width: 0 0 0 4px; }
+.metric-violet { -fx-border-color: #9872d5; -fx-border-width: 0 0 0 4px; }
+
+.teacher-metric-index {
+    -fx-text-fill: #a2acc1;
+    -fx-font-size: 9px;
+    -fx-font-weight: 800;
+}
+
+.teacher-metric-dot {
+    -fx-text-fill: #72d6c9;
+    -fx-font-size: 9px;
+}
+
+.teacher-metric-caption {
+    -fx-text-fill: #77839c;
+    -fx-font-size: 9px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 0.8px;
+}
+
+.teacher-metric-value {
+    -fx-text-fill: #1d2d55;
+    -fx-font-size: 31px;
+    -fx-font-weight: 900;
+}
+
+.teacher-row-subtitle {
+    -fx-text-fill: #78839d;
+    -fx-font-size: 12px;
+    -fx-line-spacing: 3px;
+}
+
+.teacher-card-title {
+    -fx-text-fill: #253457;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+.teacher-list-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14px;
+    -fx-border-color: #e5eaf3;
+    -fx-border-radius: 14px;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(35, 52, 91, 0.055), 12, 0.08, 0, 3);
+}
+
+.teacher-list-card:hover {
+    -fx-border-color: #c8d4f4;
+    -fx-effect: dropshadow(gaussian, rgba(50, 77, 145, 0.11), 16, 0.1, 0, 4);
+}
+
+.teacher-chat-scroll,
+.teacher-chat-scroll > .viewport {
+    -fx-background-color: #f8faff;
+    -fx-background: #f8faff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #e6ebf5;
+    -fx-border-radius: 10px;
+}
+
+.teacher-chat-bubble {
+    -fx-background-color: #eef2fb;
+    -fx-background-radius: 10px 10px 10px 2px;
+    -fx-padding: 9px 12px;
+    -fx-max-width: 720px;
+}
+
+.teacher-chat-sender {
+    -fx-text-fill: #4962ae;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+}
+
+.teacher-chat-message {
+    -fx-text-fill: #2b3652;
+    -fx-font-size: 12px;
+    -fx-wrap-text: true;
+}
+
+.teacher-page-content .text-field,
+.teacher-page-content .text-area {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 9px;
+    -fx-border-color: #dfe5f0;
+    -fx-border-radius: 9px;
+    -fx-padding: 9px 11px;
+    -fx-font-size: 12px;
+}
+
+.teacher-stat-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14px;
+    -fx-border-color: #e5eaf3;
+    -fx-border-radius: 14px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(35, 52, 91, 0.06), 12, 0.08, 0, 3);
+}
+
+.teacher-stat-number {
+    -fx-text-fill: #1d2d55;
+    -fx-font-size: 30px;
+    -fx-font-weight: 800;
+}
+
+.teacher-section-title {
+    -fx-text-fill: #1d2d55;
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+
+.teacher-root .dialog-pane {
+    -fx-background-color: #ffffff;
+}
+
+.teacher-root .dialog-pane .header-panel {
+    -fx-background-color: #f3f6fc;
+}
+
+/* Upload and quiz authoring dialogs */
+.teacher-form-dialog {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 18px;
+    -fx-border-color: #e3e9f4;
+    -fx-border-radius: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(23, 36, 72, 0.2), 24, 0.16, 0, 8);
+}
+
+.teacher-form-dialog .header-panel {
+    -fx-background-color: linear-gradient(to right, #f1f5ff, #eefaf8);
+    -fx-background-radius: 18px 18px 0 0;
+    -fx-padding: 20px 22px 14px 22px;
+}
+
+.teacher-form-dialog .header-panel .label {
+    -fx-text-fill: #1c2e57;
+    -fx-font-size: 17px;
+    -fx-font-weight: 800;
+}
+
+.teacher-form-dialog .content {
+    -fx-text-fill: #6f7d98;
+    -fx-font-size: 12px;
+}
+
+.teacher-dialog-form {
+    -fx-background-color: #f7f9fd;
+    -fx-background-radius: 14px;
+    -fx-padding: 18px;
+    -fx-spacing: 11px;
+}
+
+.teacher-form-dialog .text-field,
+.teacher-form-dialog .text-area,
+.teacher-form-dialog .combo-box,
+.teacher-form-dialog .spinner {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #dce4f1;
+    -fx-border-radius: 10px;
+    -fx-font-size: 12px;
+}
+
+.teacher-form-dialog .text-field:focused,
+.teacher-form-dialog .text-area:focused,
+.teacher-form-dialog .combo-box:focused,
+.teacher-form-dialog .spinner:focused {
+    -fx-border-color: #6682d2;
+    -fx-effect: dropshadow(gaussian, rgba(73, 104, 198, 0.13), 8, 0.1, 0, 2);
+}
+
+.teacher-quiz-question {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e7f2;
+    -fx-padding: 16px;
+}
+
+.teacher-quiz-question .radio-button {
+    -fx-text-fill: #528078;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+}
+
+.teacher-form-dialog .button-bar .button {
+    -fx-background-color: #edf1fb;
+    -fx-background-radius: 9px;
+    -fx-text-fill: #425b9f;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 9px 18px;
+    -fx-cursor: hand;
+}
+
+.teacher-form-dialog .button-bar .button:default {
+    -fx-background-color: #4565c5;
+    -fx-text-fill: #ffffff;
+}
+
+.teacher-form-dialog .button-bar .button:hover {
+    -fx-background-color: #dfe7fb;
+}
+
+.teacher-form-dialog .button-bar .button:default:hover {
+    -fx-background-color: #3655b2;
+}
+
+.teacher-dialog-scroll,
+.teacher-dialog-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}

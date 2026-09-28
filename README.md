@@ -20,12 +20,13 @@ Online_exam/
 │   └── pom.xml
 ├── database/                # MySQL schema migrations
 │   ├── migrations/
+│   ├── teacher-schema.md     # Teacher-side ER model and rules
 │   └── README.md
 ├── Online_exam.code-workspace
 └── README.md
 ```
 
-The current JavaFX client contains the shared sign-in and registration screen. Teacher and student workflows can be added as separate screens or applications as the product grows.
+The JavaFX client contains sign-in/registration and a teacher dashboard prototype. Teacher data screens are planned in `.agents/plans/` and modeled in `database/teacher-schema.md`.
 
 ## Run the backend
 

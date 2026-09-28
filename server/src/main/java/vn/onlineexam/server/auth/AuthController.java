@@ -1,6 +1,10 @@
 package vn.onlineexam.server.auth;
 
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -22,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 public class AuthController {
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
+    private static final SecureRandom RANDOM = new SecureRandom();
 
     private final JdbcTemplate jdbcTemplate;
     private final PasswordEncoder passwordEncoder;
@@ -76,14 +81,15 @@ public class AuthController {
         }
 
         List<LoginUser> users = jdbcTemplate.query("""
-                SELECT full_name, password_hash, status, role
+                SELECT id, full_name, password_hash, status, role
                 FROM users
                 WHERE email = ?
                 """, (resultSet, rowNumber) -> new LoginUser(
                 resultSet.getString("full_name"),
                 resultSet.getString("password_hash"),
                 resultSet.getString("status"),
-                resultSet.getString("role")), normalizedEmail);
+                resultSet.getString("role"),
+                resultSet.getLong("id")), normalizedEmail);
 
         if (users.isEmpty() || !passwordEncoder.matches(password, users.getFirst().passwordHash())) {
             return response(HttpStatus.UNAUTHORIZED, "Email hoặc mật khẩu không chính xác.");
@@ -92,7 +98,45 @@ public class AuthController {
             return response(HttpStatus.FORBIDDEN, "Tài khoản đã bị vô hiệu hóa.");
         }
 
-        return response(HttpStatus.OK, users.getFirst().role());
+        LoginUser user = users.getFirst();
+        byte[] tokenBytes = new byte[32];
+        RANDOM.nextBytes(tokenBytes);
+        String token = Base64.getUrlEncoder().withoutPadding().encodeToString(tokenBytes);
+        LocalDateTime expiresAt = LocalDateTime.now().plusHours(12);
+        jdbcTemplate.update("INSERT INTO auth_sessions (user_id, token_hash, expires_at) VALUES (?, ?, ?)",
+                user.id(), sha256(token), expiresAt);
+        return ResponseEntity.ok()
+                .contentType(MediaType.TEXT_PLAIN)
+                .header("X-Auth-Token", token)
+                .header("X-User-Role", user.role())
+                .header("X-User-Name", user.fullName())
+                .header("X-User-Email", normalizedEmail)
+                .body(user.role());
+    }
+
+    @PostMapping(path = "/logout", produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> logout(@org.springframework.web.bind.annotation.RequestHeader(
+            name = "Authorization", required = false) String authorization) {
+        String token = bearerToken(authorization);
+        if (token != null) {
+            jdbcTemplate.update("UPDATE auth_sessions SET revoked_at = CURRENT_TIMESTAMP(3) WHERE token_hash = ? AND revoked_at IS NULL",
+                    sha256(token));
+        }
+        return response(HttpStatus.OK, "Đã đăng xuất.");
+    }
+
+    private static String bearerToken(String authorization) {
+        return authorization != null && authorization.startsWith("Bearer ")
+                ? authorization.substring(7).trim() : null;
+    }
+
+    private static String sha256(String token) {
+        try {
+            byte[] digest = MessageDigest.getInstance("SHA-256").digest(token.getBytes(StandardCharsets.UTF_8));
+            return java.util.HexFormat.of().formatHex(digest);
+        } catch (java.security.NoSuchAlgorithmException exception) {
+            throw new IllegalStateException("SHA-256 is unavailable", exception);
+        }
     }
 
     @ExceptionHandler(DataAccessException.class)
@@ -121,6 +165,6 @@ public class AuthController {
         return ResponseEntity.status(status).contentType(MediaType.TEXT_PLAIN).body(body);
     }
 
-    private record LoginUser(String fullName, String passwordHash, String status, String role) {
+    private record LoginUser(String fullName, String passwordHash, String status, String role, long id) {
     }
 }

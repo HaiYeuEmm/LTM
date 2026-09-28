@@ -31,7 +31,7 @@ public class AuthApplication extends Application {
             .build();
     private final String apiBaseUrl = normalizeApiBaseUrl(System.getProperty(
             "onlineexam.api.url",
-            System.getenv().getOrDefault("ONLINE_EXAM_API_URL", "http://localhost:8080")));
+            System.getenv().getOrDefault("ONLINE_EXAM_API_URL", "http://192.168.1.14:8080")));
     private boolean registering;
     private VBox formFields;
     private Label heading;
@@ -320,7 +320,13 @@ public class AuthApplication extends Application {
                         showMessage(response.body());
                     } else {
                         if ("TEACHER".equalsIgnoreCase(response.body().trim())) {
-                            showTeacherDashboard(email);
+                            String token = response.headers().firstValue("X-Auth-Token").orElse("");
+                            String fullName = response.headers().firstValue("X-User-Name").orElse(email);
+                            showTeacherDashboard(email, fullName, token);
+                        } else if ("STUDENT".equalsIgnoreCase(response.body().trim())) {
+                            String token = response.headers().firstValue("X-Auth-Token").orElse("");
+                            String fullName = response.headers().firstValue("X-User-Name").orElse(email);
+                            showStudentDashboard(email, fullName, token);
                         } else {
                             showWelcomeScreen(email);
                         }
@@ -328,8 +334,10 @@ public class AuthApplication extends Application {
                 }));
     }
 
-    private void showTeacherDashboard(String email) {
-        TeacherDashboard dashboard = new TeacherDashboard(email, () -> {
+    private void showTeacherDashboard(String email, String fullName, String token) {
+        TeacherApiClient api = new TeacherApiClient(apiBaseUrl, token);
+        TeacherDashboard dashboard = new TeacherDashboard(email, fullName, api, () -> {
+            api.logout();
             passwordField.clear();
             primaryStage.setMinWidth(900);
             primaryStage.setMinHeight(660);
@@ -338,9 +346,29 @@ public class AuthApplication extends Application {
         });
         Scene scene = new Scene(dashboard, 1280, 820);
         scene.getStylesheets().add(getClass().getResource("/styles/auth.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/styles/teacher.css").toExternalForm());
         primaryStage.setMinWidth(1120);
         primaryStage.setMinHeight(720);
         primaryStage.setTitle("Examly | Không gian giáo viên");
+        primaryStage.setScene(scene);
+    }
+
+    private void showStudentDashboard(String email, String fullName, String token) {
+        StudentApiClient api = new StudentApiClient(apiBaseUrl, token);
+        StudentDashboard dashboard = new StudentDashboard(email, fullName, api, () -> {
+            api.logout();
+            passwordField.clear();
+            primaryStage.setMinWidth(900);
+            primaryStage.setMinHeight(660);
+            primaryStage.setTitle("Examly | Tài khoản của bạn");
+            primaryStage.setScene(authScene);
+        });
+        Scene scene = new Scene(dashboard, 1280, 820);
+        scene.getStylesheets().add(getClass().getResource("/styles/auth.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/styles/student.css").toExternalForm());
+        primaryStage.setMinWidth(1080);
+        primaryStage.setMinHeight(700);
+        primaryStage.setTitle("Examly | Không gian học sinh");
         primaryStage.setScene(scene);
     }
 
